@@ -47,6 +47,13 @@
 		3507D1671C853EF40065240D /* OneKindListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3507D1501C853EF40065240D /* OneKindListTableViewCell.xib */; };
 		357FF81E1C8578AB0059E503 /* CQHotlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 357FF8161C8578AB0059E503 /* CQHotlist.m */; };
 		357FF8201C8578AB0059E503 /* CQNewlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 357FF81A1C8578AB0059E503 /* CQNewlist.m */; };
+		357FF8311C858F990059E503 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 357FF8251C858F990059E503 /* WMFooldView.m */; };
+		357FF8321C858F990059E503 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 357FF8271C858F990059E503 /* WMMenuItem.m */; };
+		357FF8331C858F990059E503 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 357FF8291C858F990059E503 /* WMMenuView.m */; };
+		357FF8341C858F990059E503 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 357FF82B1C858F990059E503 /* WMProgressView.m */; };
+		357FF8351C858F990059E503 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 357FF82D1C858F990059E503 /* WMScrollView.m */; };
+		357FF8361C858F990059E503 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 357FF8301C858F990059E503 /* WMPageController.m */; };
+		357FF8391C8590E40059E503 /* CQForumMainPageC.m in Sources */ = {isa = PBXBuildFile; fileRef = 357FF8381C8590E40059E503 /* CQForumMainPageC.m */; };
 		35AF753D1C846B000018B5E4 /* CQQuestionSortVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AF753C1C846B000018B5E4 /* CQQuestionSortVC.m */; };
 		35AF75431C846D600018B5E4 /* CQHotDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AF75421C846D600018B5E4 /* CQHotDetailModel.m */; };
 		35AF754A1C8470010018B5E4 /* CQWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AF75491C8470010018B5E4 /* CQWebViewController.m */; };
@@ -178,6 +185,21 @@
 		357FF8161C8578AB0059E503 /* CQHotlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQHotlist.m; sourceTree = "<group>"; };
 		357FF8191C8578AB0059E503 /* CQNewlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQNewlist.h; sourceTree = "<group>"; };
 		357FF81A1C8578AB0059E503 /* CQNewlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQNewlist.m; sourceTree = "<group>"; };
+		357FF8241C858F990059E503 /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
+		357FF8251C858F990059E503 /* WMFooldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMFooldView.m; sourceTree = "<group>"; };
+		357FF8261C858F990059E503 /* WMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuItem.h; sourceTree = "<group>"; };
+		357FF8271C858F990059E503 /* WMMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuItem.m; sourceTree = "<group>"; };
+		357FF8281C858F990059E503 /* WMMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuView.h; sourceTree = "<group>"; };
+		357FF8291C858F990059E503 /* WMMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuView.m; sourceTree = "<group>"; };
+		357FF82A1C858F990059E503 /* WMProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMProgressView.h; sourceTree = "<group>"; };
+		357FF82B1C858F990059E503 /* WMProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMProgressView.m; sourceTree = "<group>"; };
+		357FF82C1C858F990059E503 /* WMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMScrollView.h; sourceTree = "<group>"; };
+		357FF82D1C858F990059E503 /* WMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScrollView.m; sourceTree = "<group>"; };
+		357FF82E1C858F990059E503 /* WMPageConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageConst.h; sourceTree = "<group>"; };
+		357FF82F1C858F990059E503 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
+		357FF8301C858F990059E503 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
+		357FF8371C8590E40059E503 /* CQForumMainPageC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQForumMainPageC.h; sourceTree = "<group>"; };
+		357FF8381C8590E40059E503 /* CQForumMainPageC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQForumMainPageC.m; sourceTree = "<group>"; };
 		358A26A71C8545780088C0A9 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		35AF753B1C846B000018B5E4 /* CQQuestionSortVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQQuestionSortVC.h; sourceTree = "<group>"; };
 		35AF753C1C846B000018B5E4 /* CQQuestionSortVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQQuestionSortVC.m; sourceTree = "<group>"; };
@@ -403,6 +425,7 @@
 		357FF8131C856EE60059E503 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				357FF8221C858F990059E503 /* WMPageController */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -416,6 +439,34 @@
 				357FF81A1C8578AB0059E503 /* CQNewlist.m */,
 			);
 			path = HotListModel;
+			sourceTree = "<group>";
+		};
+		357FF8221C858F990059E503 /* WMPageController */ = {
+			isa = PBXGroup;
+			children = (
+				357FF8231C858F990059E503 /* WMMenuView */,
+				357FF82E1C858F990059E503 /* WMPageConst.h */,
+				357FF82F1C858F990059E503 /* WMPageController.h */,
+				357FF8301C858F990059E503 /* WMPageController.m */,
+			);
+			path = WMPageController;
+			sourceTree = "<group>";
+		};
+		357FF8231C858F990059E503 /* WMMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				357FF8241C858F990059E503 /* WMFooldView.h */,
+				357FF8251C858F990059E503 /* WMFooldView.m */,
+				357FF8261C858F990059E503 /* WMMenuItem.h */,
+				357FF8271C858F990059E503 /* WMMenuItem.m */,
+				357FF8281C858F990059E503 /* WMMenuView.h */,
+				357FF8291C858F990059E503 /* WMMenuView.m */,
+				357FF82A1C858F990059E503 /* WMProgressView.h */,
+				357FF82B1C858F990059E503 /* WMProgressView.m */,
+				357FF82C1C858F990059E503 /* WMScrollView.h */,
+				357FF82D1C858F990059E503 /* WMScrollView.m */,
+			);
+			path = WMMenuView;
 			sourceTree = "<group>";
 		};
 		358A26A51C8545370088C0A9 /* Common */ = {
@@ -556,6 +607,8 @@
 				3FAC2A471C81420200CCBD9D /* CQForumVC.m */,
 				35AF753B1C846B000018B5E4 /* CQQuestionSortVC.h */,
 				35AF753C1C846B000018B5E4 /* CQQuestionSortVC.m */,
+				357FF8371C8590E40059E503 /* CQForumMainPageC.h */,
+				357FF8381C8590E40059E503 /* CQForumMainPageC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -864,12 +917,16 @@
 				3507D15A1C853EF40065240D /* OneBrandListTableVC.m in Sources */,
 				357FF81E1C8578AB0059E503 /* CQHotlist.m in Sources */,
 				3FAC29D61C813D7B00CCBD9D /* ViewController.m in Sources */,
+				357FF8351C858F990059E503 /* WMScrollView.m in Sources */,
+				357FF8311C858F990059E503 /* WMFooldView.m in Sources */,
 				3507D1191C853EBF0065240D /* CQNews.m in Sources */,
+				357FF8331C858F990059E503 /* WMMenuView.m in Sources */,
 				3507D11B1C853EBF0065240D /* CQShopping.m in Sources */,
 				3507D1641C853EF40065240D /* OneBrandListTableViewCell.m in Sources */,
 				3FAC29D31C813D7B00CCBD9D /* AppDelegate.m in Sources */,
 				3507D1621C853EF40065240D /* DetailsForCarTableViewCell.m in Sources */,
 				3507D1221C853EBF0065240D /* CQNewsVCCell.m in Sources */,
+				357FF8361C858F990059E503 /* WMPageController.m in Sources */,
 				35AF754D1C8475030018B5E4 /* CQQuestionSortListModel.m in Sources */,
 				35AF75501C8477A20018B5E4 /* CQQeustionSortDetailModel.m in Sources */,
 				3FF196221C81571800C40890 /* RootTabBarViewController.m in Sources */,
@@ -879,12 +936,14 @@
 				3507D1601C853EF40065240D /* CQFindCarLogoListTableViewCell.m in Sources */,
 				357FF8201C8578AB0059E503 /* CQNewlist.m in Sources */,
 				3507D11D1C853EBF0065240D /* CQNewsVC.m in Sources */,
+				357FF8341C858F990059E503 /* WMProgressView.m in Sources */,
 				3507D15C1C853EF40065240D /* OneKindListTableVC.m in Sources */,
 				3FAC2A481C81420200CCBD9D /* CQForumVC.m in Sources */,
 				3507D11A1C853EBF0065240D /* CQPicture.m in Sources */,
 				3507D11E1C853EBF0065240D /* CQPictureVC.m in Sources */,
 				3F01E27E1C8546B500F471CD /* DownLoad.m in Sources */,
 				3FAC2A511C81427800CCBD9D /* CQProfileVC.m in Sources */,
+				357FF8391C8590E40059E503 /* CQForumMainPageC.m in Sources */,
 				35AF754A1C8470010018B5E4 /* CQWebViewController.m in Sources */,
 				3507D1241C853EBF0065240D /* CQPictureViewCell.m in Sources */,
 				35AF753D1C846B000018B5E4 /* CQQuestionSortVC.m in Sources */,
@@ -897,6 +956,7 @@
 				3507D1531C853EF40065240D /* OneBrandListModel.m in Sources */,
 				3507D15E1C853EF40065240D /* CQFindCarLogoCollectionTableViewCell.m in Sources */,
 				3507D1661C853EF40065240D /* OneKindListTableViewCell.m in Sources */,
+				357FF8321C858F990059E503 /* WMMenuItem.m in Sources */,
 				35AF75561C8478B40018B5E4 /* CQQuestionSortListView.m in Sources */,
 				3FAC29D01C813D7B00CCBD9D /* main.m in Sources */,
 				3507D1261C853EBF0065240D /* CQShoppingViewCell.m in Sources */,

@@ -10,7 +10,7 @@
 #import "CQHotlist.h"
 #import "CQNewlist.h"
 
-@interface CQForumVC ()
+@interface CQForumVC ()<UITableViewDataSource, UITableViewDelegate>
 // 热点 model 数组
 @property (nonatomic, strong) NSMutableArray *hotListArr;
 // 新帖 model 数组
@@ -20,9 +20,15 @@
 
 @end
 
-@implementation CQForumVC
+@implementation CQForumVC 
 
 #pragma mark - life circle
+- (void)viewWillAppear:(BOOL)animated
+{
+    // 去除导航栏
+//    self.navigationController.navigationBarHidden = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // json 解析数据, 并且放入数据数组
@@ -38,6 +44,31 @@
 }
 
 #pragma mark - delegate method
+// tableViewDeletaMethod
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return self.hotListArr.count;
+    }
+    else
+    {
+        return self.newsListArr.count;
+    }
+    return 0;
+    
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuse"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuse"];
+    }
+    return cell;
+}
 
 #pragma mark - private method
 // 处理数据
@@ -69,7 +100,9 @@
 // 设置 tableview
 - (void)setUpTableView
 {
-    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
     
 }
 
