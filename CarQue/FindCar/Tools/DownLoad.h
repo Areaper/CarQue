@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^Block) (NSData *);
+typedef void (^Block) (NSDictionary *);
+
+typedef void (^block) (NSData *);
 
 @interface DownLoad : NSObject
 
 + (void)downLoadWithUrl:(NSString *)UrlString resultBlock:(Block)result;
+
++ (void)downLoadWithImageUrl:(NSString *)ImageUrlString resultBlock:(block)result;
 
 @end

@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CQFindCarLogoListModel.h"
 
 @interface CQFindCarLogoListTableViewCell : UITableViewCell
+
+@property (nonatomic,strong)CQFindCarLogoListModel *findCarLogoListModel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *LogoImageV;
+@property (weak, nonatomic) IBOutlet UILabel *nameLab;
+
 
 @end

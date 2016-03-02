@@ -13,6 +13,8 @@
 #import "CQProfileVC.h"
 #import "CQForumMainPageC.h"
 #import "CQQuestionSortVC.h"
+#import "CQNewMainVC.h"
+
 
 
 @interface RootTabBarViewController ()
@@ -54,7 +56,7 @@
     bbsNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"社区" image:[UIImage imageNamed:@"liaotian"] tag:102];
     
     
-    CQNewsVC *newsVC = [CQNewsVC new];
+    CQNewMainVC *newsVC = [CQNewMainVC new];
     UINavigationController *newsNaVC = [[UINavigationController alloc]initWithRootViewController:newsVC];
     newsVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"新闻" image:[UIImage imageNamed:@"news"] tag:103];
     

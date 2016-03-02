@@ -7,17 +7,20 @@
 //
 
 #import "CQFindCarLogoListTableViewCell.h"
+#import "DownLoad.h"
+
 
 @implementation CQFindCarLogoListTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (void)setFindCarLogoListModel:(CQFindCarLogoListModel *)findCarLogoListModel{
+    _findCarLogoListModel = findCarLogoListModel;
+    
+    [DownLoad downLoadWithImageUrl:findCarLogoListModel.img resultBlock:^(NSData *data) {
+        self.LogoImageV.image = [UIImage imageWithData:data];
+    }];
+    self.nameLab.text = [findCarLogoListModel.name stringByRemovingPercentEncoding];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
-}
 
 @end

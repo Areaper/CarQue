@@ -1,14 +1,14 @@
 //
-//  CQHotListCellTableViewCell.m
+//  CQHotListCell.m
 //  CarQue
 //
-//  Created by leon on 16/2/29.
+//  Created by leon on 16/3/1.
 //  Copyright © 2016年 GHY. All rights reserved.
 //
 
-#import "CQHotListCellTableViewCell.h"
+#import "CQHotListCell.h"
 
-@implementation CQHotListCellTableViewCell
+@implementation CQHotListCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -19,5 +19,12 @@
 
     // Configure the view for the selected state
 }
+- (void)setHotModel:(CQHotlist *)hotModel
+{
+    _userName.text = hotModel.memberName;
+    _contentLabel.text = hotModel.title;
+    
+}
+
 
 @end

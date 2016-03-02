@@ -8,10 +8,11 @@
 
 #import "CQNewsVC.h"
 #import "CQNewsVCCell.h"
+#import "CQNewLoopView.h"
+
 
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-
 
 @interface CQNewsVC ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong)UIScrollView *scrollView;
@@ -27,61 +28,19 @@
 
 @implementation CQNewsVC
 
-#pragma mark 设置轮播图
-- (void)setNewScrollViewView
-{
 
-    self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 5 * 2)];
-    self.scrollView.backgroundColor = [UIColor cyanColor];
-    self.scrollView.delegate = self;
-    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 0);
-    self.scrollView.pagingEnabled = YES;
-    self.scrollView.bounces = NO;
-    
-    
-    
-
-
-    
-    
-    
-    
-#pragma mark 设置pageControl
-    
-    self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, _scrollView.frame.size.height-30 , SCREEN_WIDTH, 30)];
-    _pageControl.backgroundColor = [UIColor whiteColor];
-    
-    _pageControl.numberOfPages = 5;
-    
-    self.pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
-    self.pageControl.pageIndicatorTintColor = [UIColor redColor];
-    
-    //一开始第几页
-    self.pageControl.currentPage = 0 ;
-    [self.pageControl addTarget:self action:@selector(pageControlAtion:) forControlEvents:UIControlEventValueChanged];
-    self.pageControl.backgroundColor = [UIColor clearColor];
-    [self.scrollView addSubview:_pageControl];
-  
-    
-    
-
-
-
-}
 #pragma mark 设置tableview
 
 - (void)setNewTabview
 {
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 50, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"CQNewsVCCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"new"];
-    [self setNewScrollViewView];
-    self.tableView.tableHeaderView = self.scrollView;
     [self.view addSubview:self.tableView];
-    
 
-
+    CQNewLoopView *loopView = [[CQNewLoopView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 10.0 * 3.2)];
+    self.tableView.tableHeaderView = loopView;
 
 
 
