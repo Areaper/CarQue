@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OneKindListTableViewCell : UITableViewCell
+#import "OneKindListModel.h"
 
+@interface OneKindListTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *nameLab;
+@property (weak, nonatomic) IBOutlet UIButton *compareCarBut;
+
+@property (nonatomic,strong)OneKindListModel *model;
 @end

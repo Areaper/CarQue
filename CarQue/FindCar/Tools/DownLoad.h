@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^Block) (NSData *);
+typedef void (^Block) (NSDictionary *);
 
 @interface DownLoad : NSObject
 

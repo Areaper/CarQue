@@ -10,8 +10,10 @@
 
 typedef void(^cellBlock)(NSString * ,NSString *);
 
+
 @interface CQFindCarLogoListTableVC : UITableViewController
 
 @property (nonatomic,copy)cellBlock cellblock;
+//@property (nonatomic,copy)reloadViewBlock reloadBlock;
 
 @end

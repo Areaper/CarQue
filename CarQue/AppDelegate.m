@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "RootTabBarViewController.h"
+#import "CQTabBarController.h"
+
 
 @interface AppDelegate ()
 
@@ -22,8 +23,23 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    RootTabBarViewController *rootTabBarVC = [RootTabBarViewController new];
+    CQTabBarController *rootTabBarVC = [[CQTabBarController alloc] init];
     self.window.rootViewController = rootTabBarVC;
+    
+    // 百度地图 manager
+    _mapManager = [[BMKMapManager alloc] init];
+    
+    BOOL ret = [_mapManager start:@"5Gvbv2dCeYaTFxxP2URjQDMl" generalDelegate:nil];
+    
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
+    
+    
+    //初始化应用，appKey和appSecret从后台申请得
+    [SMSSDK registerApp:@"1025f7ca6040d"
+             withSecret:@"14f1a3efc1862af9c5aefae1f8255a9a"];
+    
     
     
     
@@ -50,6 +66,27 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)onGetNetworkState:(int)iError
+{
+    if (0 == iError) {
+        NSLog(@"联网成功");
+    }
+    else{
+        NSLog(@"onGetNetworkState %d",iError);
+    }
+    
+}
+
+- (void)onGetPermissionState:(int)iError
+{
+    if (0 == iError) {
+        NSLog(@"授权成功");
+    }
+    else {
+        NSLog(@"onGetPermissionState %d",iError);
+    }
 }
 
 @end

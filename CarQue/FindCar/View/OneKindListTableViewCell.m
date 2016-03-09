@@ -10,14 +10,15 @@
 
 @implementation OneKindListTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (void)setModel:(OneKindListModel *)model{
+    _model = model;
+    self.nameLab.text = model.name;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (IBAction)compareCarAction:(UIButton *)sender {
+    NSLog(@"比车");
 }
+
+
 
 @end

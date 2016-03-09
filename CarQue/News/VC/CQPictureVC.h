@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^PictureBlock)(NSInteger);
+
 @interface CQPictureVC : UIViewController
+
+@property (copy, nonatomic) PictureBlock pictureBlock;
+
+
+
+
 
 @end

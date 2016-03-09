@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CQPictureResult.h"
 @interface CQPictureViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *coverImge;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *time;
+@property (weak, nonatomic) IBOutlet UILabel *comment;
+
+@property (nonatomic, strong) CQPictureResult *Model;
+
+
+
 
 @end

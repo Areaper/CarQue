@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CQFindCarVC : UIViewController
+@interface CQFindCarVC : UITableViewController
+
 
 @end

@@ -10,4 +10,6 @@
 
 @interface DetailsForCarTableVC : UITableViewController
 
+@property (nonatomic,copy)NSString *headerViewName;
+
 @end

@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef void(^addTapEventForImageViewWithBlock)(NSString *);
+
+
 @interface CQNewLoopView : UIView
+
+
+//数据
+@property(nonatomic,retain)NSArray *array;
+
+@property (nonatomic, copy) addTapEventForImageViewWithBlock block;
+
+- (void)addTapEventForImageViewWithBlock:(addTapEventForImageViewWithBlock)block;
+
+
 
 @end

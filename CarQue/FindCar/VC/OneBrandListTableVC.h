@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^getBlock)(NSString * ,NSString *);
+typedef void(^PushBlock)(NSString *,NSString *,NSString *);
 
 @interface OneBrandListTableVC : UITableViewController
 
 @property (nonatomic,copy)getBlock getblock;
-                        
+@property (nonatomic,copy)PushBlock pushBlock;
+
 @end

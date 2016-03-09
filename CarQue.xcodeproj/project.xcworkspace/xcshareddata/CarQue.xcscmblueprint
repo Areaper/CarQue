@@ -5,16 +5,23 @@
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "f9995895-6efa-44fc-bc7f-81cab5771130++3703" : 0
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703" : 0,
+    "A54628982849B080B3ACC65DAD09D379A29DB831" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C12AF5F7-98B8-4B8F-A23B-11F41D98A71C",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "f9995895-6efa-44fc-bc7f-81cab5771130++3703" : ""
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703" : "carque\/",
+    "A54628982849B080B3ACC65DAD09D379A29DB831" : ".."
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "CarQue",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CarQue.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Areaper\/CarQue.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A54628982849B080B3ACC65DAD09D379A29DB831"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/www.svnchina.com\/svn\/carque",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",

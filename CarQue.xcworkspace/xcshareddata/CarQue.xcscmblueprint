@@ -1,0 +1,64 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+<<<<<<< .mine
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++E56E729" : {
+=======
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++A7C2E08" : {
+>>>>>>> .r234
+
+    },
+<<<<<<< .mine
+    "f9995895-6efa-44fc-bc7f-81cab5771130+++C437AB7" : {
+=======
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++C437AB7" : {
+>>>>>>> .r234
+
+    },
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++A7C2E08" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+<<<<<<< .mine
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++E56E729" : 0,
+    "f9995895-6efa-44fc-bc7f-81cab5771130+++C437AB7" : 0,
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++A7C2E08" : 0
+=======
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++A7C2E08" : 0,
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++C437AB7" : 0,
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++E56E729" : 0
+>>>>>>> .r234
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "178A9D9C-DED2-427D-B12F-E1AA28711D03",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+<<<<<<< .mine
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++E56E729" : "carque\/",
+    "f9995895-6efa-44fc-bc7f-81cab5771130+++C437AB7" : "",
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++A7C2E08" : "carque\/"
+=======
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++A7C2E08" : "carque\/",
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++C437AB7" : "",
+    "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++E56E729" : "carque\/"
+>>>>>>> .r234
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CarQue",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CarQue.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/www.svnchina.com\/svn\/carque",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "f9995895-6efa-44fc-bc7f-81cab5771130+++C437AB7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/www.svnchina.com\/svn\/carque",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++A7C2E08"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/www.svnchina.com\/svn\/carque",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "f9995895-6efa-44fc-bc7f-81cab5771130++3703+++E56E729"
+    }
+  ]
+}

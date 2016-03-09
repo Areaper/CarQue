@@ -17,6 +17,7 @@
 @property (nonatomic,strong)NSMutableArray *dataArr;
 @property (nonatomic,strong)NSMutableArray *enameArr; //首字母数组
 
+@property (nonatomic,copy)NSString *pathID; // 记录点击cell时的Model的ID属性
 @end
 
 @implementation CQFindCarLogoListTableVC
@@ -35,7 +36,6 @@ static NSString *CQFindCarIdentifier = @"CQFindCarLogoListTableViewCellIdentifie
     }
     return _enameArr;
 }
-
 
 // 解析数据
 - (void)getDataArray{
@@ -60,7 +60,6 @@ static NSString *CQFindCarIdentifier = @"CQFindCarLogoListTableViewCellIdentifie
                 
             }
         }
-        NSLog(@"%@",self.dataArr);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
@@ -71,13 +70,14 @@ static NSString *CQFindCarIdentifier = @"CQFindCarLogoListTableViewCellIdentifie
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"车库";
-    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44);
-    
+    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64);
+//    数据
     [self getDataArray];
     
-    //    注册cell
+//    注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"CQFindCarLogoListTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CQFindCarIdentifier];
 }
+
 //  索引
 - (nullable NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     return self.enameArr;
@@ -109,11 +109,14 @@ static NSString *CQFindCarIdentifier = @"CQFindCarLogoListTableViewCellIdentifie
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSArray *arr = [self.dataArr[indexPath.section] objectForKey:self.enameArr[indexPath.section]];
     CQFindCarLogoListModel *logoListModel = arr[indexPath.row];
-    self.cellblock(logoListModel.kindId,logoListModel.name);
+    if (![logoListModel.kindId isEqualToString:self.pathID]) {
+        self.cellblock(logoListModel.kindId,logoListModel.name);
+    }
+    self.pathID = logoListModel.kindId;
 }
-
+//row 高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 65;
+    return 55;
 }
 
 @end

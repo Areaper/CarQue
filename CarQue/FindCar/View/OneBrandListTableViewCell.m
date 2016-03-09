@@ -8,17 +8,14 @@
 //
 
 #import "OneBrandListTableViewCell.h"
+#import "OneBrandListModel.h"
 
 @implementation OneBrandListTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setModel:(OneBrandListModel *)model{
+    _model = model;
+    self.nameLab.text = model.name;
+    self.priceLab.text = model.price;
 }
 
 @end

@@ -9,33 +9,35 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CQFindCarLogoListTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="376" height="65"/>
+            <rect key="frame" x="0.0" y="0.0" width="376" height="55"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="376" height="64"/>
+                <rect key="frame" x="0.0" y="0.0" width="376" height="54"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XVA-Md-3ab">
-                        <rect key="frame" x="8" y="2" width="83" height="60"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="load_carousel.png" translatesAutoresizingMaskIntoConstraints="NO" id="XVA-Md-3ab">
+                        <rect key="frame" x="8" y="5" width="58" height="43"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="cs2-VK-pOl"/>
-                            <constraint firstAttribute="width" constant="83" id="zIx-vt-aYA"/>
+                            <constraint firstAttribute="height" constant="43" id="dh9-5z-ZYA"/>
+                            <constraint firstAttribute="width" constant="58" id="i4L-En-VN9"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFs-cB-WGE">
-                        <rect key="frame" x="99" y="7" width="269" height="50"/>
+                        <rect key="frame" x="74" y="2" width="42" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="ypG-us-dCc"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="QFs-cB-WGE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-1" id="8hj-AA-iWo"/>
-                    <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="QFs-cB-WGE" secondAttribute="trailing" id="JK5-Bs-9vI"/>
-                    <constraint firstItem="QFs-cB-WGE" firstAttribute="leading" secondItem="XVA-Md-3ab" secondAttribute="trailing" constant="8" id="QVI-2P-L5U"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="QFs-cB-WGE" secondAttribute="bottom" constant="-1" id="jdb-ym-yX5"/>
-                    <constraint firstItem="XVA-Md-3ab" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-6" id="mbX-I2-l8k"/>
-                    <constraint firstItem="XVA-Md-3ab" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="pxj-Wm-DJu"/>
+                    <constraint firstItem="XVA-Md-3ab" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="6qK-1K-gaP"/>
+                    <constraint firstItem="QFs-cB-WGE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-6" id="9FI-Fh-BGp"/>
+                    <constraint firstItem="XVA-Md-3ab" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Poy-g3-q5G"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="QFs-cB-WGE" secondAttribute="trailing" id="ZC5-B7-1XR"/>
+                    <constraint firstItem="QFs-cB-WGE" firstAttribute="leading" secondItem="XVA-Md-3ab" secondAttribute="trailing" constant="8" id="cN4-xs-Dvq"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -45,4 +47,7 @@
             <point key="canvasLocation" x="371" y="287.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="load_carousel.png" width="414" height="240"/>
+    </resources>
 </document>

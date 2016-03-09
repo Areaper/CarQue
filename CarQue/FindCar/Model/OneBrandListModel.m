@@ -1,7 +1,4 @@
 
-
-
-
 //
 //  OneBrandListModel.m
 //  CarQue
@@ -13,5 +10,19 @@
 #import "OneBrandListModel.h"
 
 @implementation OneBrandListModel
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    
+}
+
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict{
+    return [[self alloc]initWithDictionary:dict];
+}
+- (instancetype)initWithDictionary:(NSDictionary *)dict{
+    if (self = [super init]) {
+        [self setValuesForKeysWithDictionary:dict];
+    }
+    return self;
+}
 
 @end

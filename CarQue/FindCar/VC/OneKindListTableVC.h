@@ -10,4 +10,11 @@
 
 @interface OneKindListTableVC : UITableViewController
 
+//  车系接口ID
+@property (nonatomic,copy)NSString *pseridID;
+@property (nonatomic,copy)NSString *priceStr;
+//  标题
+@property (nonatomic,strong)NSString *topTitleStr;
+
+
 @end

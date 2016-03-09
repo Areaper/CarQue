@@ -9,18 +9,16 @@
 #import "CQNewsVC.h"
 #import "CQNewsVCCell.h"
 #import "CQNewLoopView.h"
-
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-
-
+#import "CQNewsManager.h"
+#import "CQPictureVC.h"
+#import "CQNewsDetailsVC.h"
+#import "CQNewsLoopViewManager.h"
 @interface CQNewsVC ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong)UIScrollView *scrollView;
 @property (nonatomic, strong)UIPageControl *pageControl;
 @property (nonatomic, strong)UITableView *tableView;
-
-
-
+@property (nonatomic, strong)NSMutableArray *modelArr;
+@property (nonatomic, weak) CQNewLoopView *loopView;
 
 
 
@@ -30,52 +28,88 @@
 
 
 #pragma mark 设置tableview
+-(NSMutableArray *)modelArray{
+    if (!_modelArr) {
+        _modelArr = [NSMutableArray array];
+    }
+    return _modelArr;
+}
+
 
 - (void)setNewTabview
 {
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT- 100)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"CQNewsVCCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"new"];
     [self.view addSubview:self.tableView];
-    
-    CQNewLoopView *loopView = [[CQNewLoopView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 10.0 * 3.2)];
+
+    //设置Headerview
+    if ( [CQNewsLoopViewManager shareManager].isnetWork) {
+    CQNewLoopView *loopView = [[CQNewLoopView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 10.0 * 3.24)];
     self.tableView.tableHeaderView = loopView;
+    self.loopView = loopView;
+     }
     
-    
-    
-    
-
-
-
-
+    //取消多余的线
+    self.tableView.tableFooterView = [UIView new];
 
 
 }
+#pragma mark 处理News数据
+- (void)dealWithData
+{
 
+ [[CQNewsManager shareManager]requestDatawithVC:self];
+ [[CQNewsLoopViewManager shareManager]requestDatawithVC:self];
+    
+    
+
+  _loopView.array = [[CQNewsLoopViewManager shareManager]returnLoopModel];
+[[CQNewsLoopViewManager shareManager]returnLoopModel];
+
+
+ dispatch_async(dispatch_get_main_queue(), ^{
+     
+        [self.tableView reloadData];
+     
+    });
+    
+
+    
+    
+
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES];
+   
     [self setNewTabview];
+    [self dealWithData];
     
+    //点击图片push到相应网页
+    [self.loopView addTapEventForImageViewWithBlock:^(NSString *Url) {
+  
+        self.newLoopBlock(Url);
+                
+    }];
+    
+   
+
     
     
 }
 
 
-
-#pragma mark pageControl方法
-- (void)pageControlAtion:(UIPageControl *)pageControl
-{
-    self.scrollView.contentOffset = CGPointMake(SCREEN_WIDTH * pageControl.currentPage ,0 );
-}
 
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    
+    return [[CQNewsManager shareManager]returnModelDataArrayCount];
+    
     
 
 }
@@ -84,7 +118,8 @@
 {
     CQNewsVCCell *cell = [tableView dequeueReusableCellWithIdentifier:@"new" forIndexPath:indexPath];
     
-    cell.textLabel.text = @"此处文本被网络数据替换";
+    cell.Model = [[CQNewsManager shareManager]modelAtIndex:indexPath.row];
+    
     
 
     return cell;
@@ -95,9 +130,28 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    return 100;
+    return 89;
     
 }
+
+//选中cell方法
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+  //取消选中
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+   NSString *url =  [[CQNewsManager shareManager]modelAtIndex:indexPath.row].artlistIdentifier;
+    self.newsBlock(url);
+    
+    
+    
+    NSLog(@"跳转");
+  
+}
+
+
+
 
 
 

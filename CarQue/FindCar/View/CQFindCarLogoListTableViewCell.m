@@ -7,17 +7,15 @@
 //
 
 #import "CQFindCarLogoListTableViewCell.h"
-#import "DownLoad.h"
 
+#import "UIImageView+WebCache.h"
 
 @implementation CQFindCarLogoListTableViewCell
 
 - (void)setFindCarLogoListModel:(CQFindCarLogoListModel *)findCarLogoListModel{
     _findCarLogoListModel = findCarLogoListModel;
     
-    [DownLoad downLoadWithImageUrl:findCarLogoListModel.img resultBlock:^(NSData *data) {
-        self.LogoImageV.image = [UIImage imageWithData:data];
-    }];
+    [self.LogoImageV sd_setImageWithURL:[NSURL URLWithString:findCarLogoListModel.img]];
     self.nameLab.text = [findCarLogoListModel.name stringByRemovingPercentEncoding];
 }
 

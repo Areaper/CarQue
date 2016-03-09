@@ -12,15 +12,14 @@
 @implementation DownLoad
 
 + (void)downLoadWithUrl:(NSString *)UrlString resultBlock:(Block)result{
-//    dispatch_queue_t concurrentQueue = dispatch_queue_create("concurrentQueue", DISPATCH_QUEUE_CONCURRENT);
-//    dispatch_async(concurrentQueue, ^{
         NSURLSession *session = [NSURLSession sharedSession];
         NSURLSessionDataTask *task = [session dataTaskWithURL:[NSURL URLWithString:UrlString] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            result(data);
+            NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            result(dictionary);
         }];
         [task resume];
-//    });
-    
 }
+
+
 
 @end

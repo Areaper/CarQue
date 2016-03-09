@@ -10,4 +10,15 @@
 
 @interface OneKindListModel : NSObject
 
+@property (nonatomic, strong) NSString *pserid;
+@property (nonatomic, strong) NSString *mid;
+@property (nonatomic, strong) NSString *m_disl;
+@property (nonatomic, assign) double mali;
+@property (nonatomic, strong) NSString *bid;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *m_working;
+
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
+
 @end

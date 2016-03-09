@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailsForCarModel.h"
 
 @interface DetailsForCarTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *itemNameLab;
+@property (weak, nonatomic) IBOutlet UILabel *detailLab;
+
+@property (nonatomic,strong)DetailsForCarModel *model;
 
 @end

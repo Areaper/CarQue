@@ -10,6 +10,12 @@
 
 @implementation DetailsForCarTableViewCell
 
+- (void)setModel:(DetailsForCarModel *)model{
+    _model = model;
+    self.itemNameLab.text = model.name;
+    self.detailLab.text = model.value;
+}
+
 - (void)awakeFromNib {
     // Initialization code
 }

@@ -11,11 +11,17 @@
 #import "OneBrandListModel.h"
 #import "DownLoad.h"
 
+#import "UIImageView+WebCache.h"
+
+#import "OneKindListTableVC.h"
+
 @interface OneBrandListTableVC ()
 
 @property (nonatomic,strong)UILabel *headLab;
 @property (nonatomic,strong)NSMutableArray *dataArray;
 @property (nonatomic,strong)NSMutableArray *sectionArr;
+
+@property (nonatomic,copy)NSString *brandID;
 
 @end
 
@@ -37,17 +43,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.frame = CGRectMake(SCREEN_WIDTH, 0, 0, 0);
+    self.view.frame = CGRectMake(SCREEN_WIDTH, 0, 0, SCREEN_HEIGHT);
     self.tableView.rowHeight = 80;
-    
+
+  //    加载数据
+    [self getData];
+//创建tableView的头视图
+    [self creatTableViewHeadView];
+}
+//    得到数据
+- (void)getData{
     __weak OneBrandListTableVC *weakBrandTVC = self;
     self.getblock =  ^(NSString *kindID,NSString *name){
         weakBrandTVC.headLab.text = [@"    " stringByAppendingString:name];
-//        NSLog(@"%@,%@",kindID,name);
+        
+        if (![kindID isEqualToString:weakBrandTVC.brandID] || weakBrandTVC.dataArray.count == 0) {
+            [weakBrandTVC.dataArray removeAllObjects];
+            [weakBrandTVC.sectionArr removeAllObjects];
+            
+//        NSLog(@"_____________%@",weakBrandTVC.brandID);
+        
         [DownLoad downLoadWithUrl:[OneBrandListCarAPI stringByAppendingString:kindID] resultBlock:^(NSDictionary * dictionary) {
             NSArray *resultArr = dictionary[@"result"];
+            
             for (NSDictionary *dict in resultArr) {
-               OneBrandListModel *model = [OneBrandListModel modelObjectWithDictionary:dict];
+                OneBrandListModel *model = [OneBrandListModel modelObjectWithDictionary:dict];
                 NSString *bidnameString = model.bidname;
                 if (![weakBrandTVC.sectionArr containsObject:bidnameString]) {
                     [weakBrandTVC.sectionArr addObject:bidnameString];
@@ -64,11 +84,11 @@
                 [weakBrandTVC.tableView reloadData];
             });
         }];
+        }
+        weakBrandTVC.brandID = kindID;
     };
-    
-    [self creatTableViewHeadView];
 }
-
+//创建头部视图
 - (void)creatTableViewHeadView{
     self.headLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 30)];
     self.headLab.backgroundColor = [UIColor redColor];
@@ -85,13 +105,13 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.sectionArr.count;
 }
-
+//rows 的数量
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSDictionary *dic = self.dataArray[section];
     return [dic[self.sectionArr[section]] count];
 }
 
-
+//创建cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *OneBrandCellid = @"OneBrandListTableViewCellidenf";
     
@@ -102,7 +122,14 @@
     }
     OneBrandListModel *model = self.dataArray[indexPath.section][self.sectionArr[indexPath.section]][indexPath.row];
     cell.model = model;
+    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:model.img]];
     return cell;
+}
+//点击cell
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    OneBrandListModel *model = self.dataArray[indexPath.section][self.sectionArr[indexPath.section]][indexPath.row];
+    self.pushBlock(model.pserid,model.price,model.name);
+    
 }
 
 
