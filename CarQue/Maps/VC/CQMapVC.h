@@ -1,13 +1,13 @@
 //
-//  CQFindCarVC.h
+//  CQMapVC.h
 //  CarQue
 //
-//  Created by lanou on 16/3/3.
+//  Created by leon on 16/3/4.
 //  Copyright © 2016年 GHY. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface CQFindCarVC : UIViewController
+@interface CQMapVC : UIViewController
 
 @end

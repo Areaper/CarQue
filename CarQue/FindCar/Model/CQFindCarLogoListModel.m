@@ -1,4 +1,8 @@
 
+
+
+
+//
 //  CQFindCarLogoListModel.m
 //  CarQue
 //
@@ -16,19 +20,6 @@
     }
 }
 
-+ (instancetype)findCarLogoListModelWithDic:(NSDictionary *)dic{
-    return [[self alloc]initWithDict:dic];
-}
 
-- (instancetype)initWithDict:(NSDictionary *)dict{
-    if ([super init]) {
-        [self setValuesForKeysWithDictionary:dict];
-    }
-    return self;
-}
-
-//- (NSString *)name{
-//    return [_name stringByRemovingPercentEncoding];
-//}
 
 @end

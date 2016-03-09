@@ -1,18 +1,18 @@
 //
-//  CQNewMainVC.m
+//  CQTabBarController.m
 //  CarQue
 //
-//  Created by HJW-MAC on 16/3/1.
+//  Created by leon on 16/3/8.
 //  Copyright © 2016年 GHY. All rights reserved.
 //
 
-#import "CQNewMainVC.h"
+#import "CQTabBarController.h"
 
-@interface CQNewMainVC ()
+@interface CQTabBarController ()
 
 @end
 
-@implementation CQNewMainVC
+@implementation CQTabBarController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

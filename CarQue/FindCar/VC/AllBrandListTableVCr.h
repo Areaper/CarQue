@@ -1,5 +1,5 @@
 //
-//  CQFindCarVC.h
+//  AllBrandListTableVCr.h
 //  CarQue
 //
 //  Created by lanou on 16/3/3.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CQFindCarVC : UIViewController
+@interface AllBrandListTableVCr : UITableViewController
 
 @end

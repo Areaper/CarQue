@@ -2,111 +2,108 @@
 //  OneBrandListTableVC.m
 //  CarQue
 //
-//  Created by lanou on 16/2/29.
+//  Created by lanou on 16/3/3.
 //  Copyright © 2016年 GHY. All rights reserved.
 //
 
 #import "OneBrandListTableVC.h"
+#import "OneBrandListTableViewCell.h"
+#import "OneBrandListModel.h"
+#import "DownLoad.h"
 
 @interface OneBrandListTableVC ()
+
+@property (nonatomic,strong)UILabel *headLab;
+@property (nonatomic,strong)NSMutableArray *dataArray;
+@property (nonatomic,strong)NSMutableArray *sectionArr;
 
 @end
 
 @implementation OneBrandListTableVC
 
+- (NSMutableArray *)dataArray{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+- (NSMutableArray *)sectionArr{
+    if (!_sectionArr) {
+        _sectionArr = [NSMutableArray array];
+    }
+    return _sectionArr;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.view.frame = CGRectMake(SCREEN_WIDTH, 0, 0, 0);
+    self.tableView.rowHeight = 80;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    __weak OneBrandListTableVC *weakBrandTVC = self;
+    self.getblock =  ^(NSString *kindID,NSString *name){
+        weakBrandTVC.headLab.text = [@"    " stringByAppendingString:name];
+//        NSLog(@"%@,%@",kindID,name);
+        [DownLoad downLoadWithUrl:[OneBrandListCarAPI stringByAppendingString:kindID] resultBlock:^(NSDictionary * dictionary) {
+            NSArray *resultArr = dictionary[@"result"];
+            for (NSDictionary *dict in resultArr) {
+               OneBrandListModel *model = [OneBrandListModel modelObjectWithDictionary:dict];
+                NSString *bidnameString = model.bidname;
+                if (![weakBrandTVC.sectionArr containsObject:bidnameString]) {
+                    [weakBrandTVC.sectionArr addObject:bidnameString];
+                    NSMutableArray *groupArr = [NSMutableArray arrayWithObject:model];
+                    NSMutableDictionary *groupDict = [NSMutableDictionary dictionaryWithObject:groupArr forKey:bidnameString];
+                    [weakBrandTVC.dataArray addObject:groupDict];
+                }else{
+                    NSInteger index = [weakBrandTVC.sectionArr indexOfObject:bidnameString];
+                    NSMutableArray *groupArr = [weakBrandTVC.dataArray[index] objectForKey:bidnameString];
+                    [groupArr addObject:model];
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakBrandTVC.tableView reloadData];
+            });
+        }];
+    };
+    
+    [self creatTableViewHeadView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)creatTableViewHeadView{
+    self.headLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 30)];
+    self.headLab.backgroundColor = [UIColor redColor];
+    
+    self.tableView.tableHeaderView = self.headLab;
+}
+//section 表头
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return self.sectionArr[section];
 }
 
 #pragma mark - Table view data source
-
+//section 数量
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+    return self.sectionArr.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    NSDictionary *dic = self.dataArray[section];
+    return [dic[self.sectionArr[section]] count];
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *OneBrandCellid = @"OneBrandListTableViewCellidenf";
     
-    // Configure the cell...
-    
+    OneBrandListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OneBrandCellid];
+    if (!cell) {
+        NSArray *arr = [[NSBundle mainBundle]loadNibNamed:@"OneBrandListTableViewCell" owner:nil options:nil];
+        cell = [arr objectAtIndex:0];
+    }
+    OneBrandListModel *model = self.dataArray[indexPath.section][self.sectionArr[indexPath.section]][indexPath.row];
+    cell.model = model;
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -47,10 +47,10 @@
     self.scrollView.pagingEnabled = YES;
     self.scrollView.scrollEnabled = YES;
     self.scrollView.bounces = NO;
-   [self addSubview: _scrollView];
+    [self addSubview: _scrollView];
     for (int i = 0 ; i < 5; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"load%d.png", i +1]];
-       
+        
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * i, 0, self.frame.size.width, self.frame.size.height )];
         imageView.image = image;
         imageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -58,15 +58,15 @@
         
         
     }
- 
+    
 }
-    
-    
-    
-    
+
+
+
+
 #pragma mark 设置pageControl
 - (void)setNewpageControlView{
-
+    
     
     self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, _scrollView.frame.size.height-30 , SCREEN_WIDTH, 30)];
     _pageControl.backgroundColor = [UIColor whiteColor];

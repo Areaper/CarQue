@@ -1,18 +1,18 @@
 //
-//  CQNewMainVC.m
+//  CQMapVC.m
 //  CarQue
 //
-//  Created by HJW-MAC on 16/3/1.
+//  Created by leon on 16/3/4.
 //  Copyright © 2016年 GHY. All rights reserved.
 //
 
-#import "CQNewMainVC.h"
+#import "CQMapVC.h"
 
-@interface CQNewMainVC ()
+@interface CQMapVC ()
 
 @end
 
-@implementation CQNewMainVC
+@implementation CQMapVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

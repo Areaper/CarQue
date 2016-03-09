@@ -9,7 +9,6 @@
 #import "CQForumVC.h"
 #import "CQHotlist.h"
 #import "CQNewlist.h"
-#import "CQHotListCell.h"
 
 @interface CQForumVC ()<UITableViewDataSource, UITableViewDelegate>
 // 热点 model 数组
@@ -64,22 +63,11 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CQHotListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HotReuse"];
-    CQHotlist *hotModel;
-    if (indexPath.section == 0) {
-        hotModel = self.hotListArr[indexPath.row];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuse"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuse"];
     }
-    else if (indexPath.section == 1)
-    {
-        hotModel = self.newsListArr[indexPath.row];
-    }
-    cell.hotModel = hotModel;
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 120;
 }
 
 #pragma mark - private method
@@ -115,8 +103,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
-    // 去掉分割线
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
 }
 
@@ -141,9 +127,7 @@
 - (UITableView *)tableView
 {
     if (_tableView == nil) {
-        // 高度减去 tabbar 的高度
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 75) style:UITableViewStyleGrouped];
-        [_tableView registerNib:[UINib nibWithNibName:@"CQHotListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"HotReuse"];
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     }
     return _tableView;
 }

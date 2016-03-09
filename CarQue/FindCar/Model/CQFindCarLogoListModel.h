@@ -15,8 +15,6 @@
 @property (nonatomic,copy)NSString *img;
 @property (nonatomic,copy)NSString *name;
 
-//初始化数据
-+ (instancetype)findCarLogoListModelWithDic:(NSDictionary *)dic;
-- (instancetype)initWithDict:(NSDictionary *)dict;
+//- (instancetype)initWithDic:(NSDictionary *)dic;
 
 @end

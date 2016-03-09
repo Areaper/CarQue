@@ -1,18 +1,18 @@
 //
-//  AllBrandListTableCollectionVC.m
+//  AllBrandListTableVCr.m
 //  CarQue
 //
-//  Created by lanou on 16/2/29.
+//  Created by lanou on 16/3/3.
 //  Copyright © 2016年 GHY. All rights reserved.
 //
 
-#import "AllBrandListTableCollectionVC.h"
+#import "AllBrandListTableVCr.h"
 
-@interface AllBrandListTableCollectionVC ()
+@interface AllBrandListTableVCr ()
 
 @end
 
-@implementation AllBrandListTableCollectionVC
+@implementation AllBrandListTableVCr
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -82,22 +82,6 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 */
 

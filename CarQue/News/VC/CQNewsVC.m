@@ -10,9 +10,9 @@
 #import "CQNewsVCCell.h"
 #import "CQNewLoopView.h"
 
-
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
 
 @interface CQNewsVC ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong)UIScrollView *scrollView;
@@ -38,9 +38,14 @@
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"CQNewsVCCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"new"];
     [self.view addSubview:self.tableView];
-
+    
     CQNewLoopView *loopView = [[CQNewLoopView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 10.0 * 3.2)];
     self.tableView.tableHeaderView = loopView;
+    
+    
+    
+    
+
 
 
 
