@@ -26,6 +26,8 @@
 
 #import <SMS_SDK/SMSSDK.h>
 
+#import <TencentOpenAPI/TencentApiInterface.h>
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     BMKMapManager *_mapManager;

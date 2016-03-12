@@ -30,7 +30,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.hidesBottomBarWhenPushed = YES;
+//        self.hidesBottomBarWhenPushed = YES;
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn_back@3x"] style:UIBarButtonItemStylePlain target:self action:@selector(backBtnAction:)];
         [self.navigationItem.leftBarButtonItem setTintColor:[UIColor redColor]];
     }

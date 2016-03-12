@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CQTabBarController.h"
+#import <TencentOpenAPI/TencentOAuth.h>
 
 
 @interface AppDelegate ()
@@ -88,5 +89,16 @@
         NSLog(@"onGetPermissionState %d",iError);
     }
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    
+    return [TencentOAuth HandleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [TencentOAuth HandleOpenURL:url];
+}
+
 
 @end

@@ -176,12 +176,10 @@
 }
 //点击cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    self.hidesBottomBarWhenPushed = YES;
     DetailsForCarTableVC *detailTVC = [[DetailsForCarTableVC alloc]init];
     OneKindListModel *model = self.rowsDataArray[indexPath.section][self.sectionsArr[indexPath.section]][indexPath.row];
     detailTVC.headerViewName = model.name;
     [self.navigationController pushViewController:detailTVC animated:YES];
-    self.hidesBottomBarWhenPushed = NO;
     
 }
 

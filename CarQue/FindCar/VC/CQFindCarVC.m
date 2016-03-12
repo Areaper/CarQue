@@ -45,7 +45,7 @@
             weakCQFindCarVC.priceStr = price;
             weakCQFindCarVC.topTitleStr = topTitleStr;
 //         隐藏标签栏
-            weakCQFindCarVC.hidesBottomBarWhenPushed = YES;
+//            weakCQFindCarVC.hidesBottomBarWhenPushed = YES;
             OneKindListTableVC *OneKindListTVC = [[OneKindListTableVC alloc]init];
 //         传值
             OneKindListTVC.pseridID = weakCQFindCarVC.pseridID;
@@ -53,7 +53,7 @@
             OneKindListTVC.topTitleStr = weakCQFindCarVC.topTitleStr;
 
             [weakCQFindCarVC.navigationController pushViewController:OneKindListTVC animated:YES];
-            weakCQFindCarVC.hidesBottomBarWhenPushed = NO;
+//            weakCQFindCarVC.hidesBottomBarWhenPushed = NO;
         };
     }
     return _OneBrandTVC;

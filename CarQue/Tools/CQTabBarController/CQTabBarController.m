@@ -23,6 +23,11 @@
 
 #import "RegViewController.h"
 
+// 腾讯
+#import <TencentOpenAPI/TencentOAuth.h>
+#import "sdkCall.h"
+
+
 
 
 
@@ -172,6 +177,14 @@
     NSLog(@"You tap %@ at index : %lu", dcPathButton, (unsigned long)itemButtonIndex);
     switch (itemButtonIndex) {
         case 0:
+        {
+            
+            NSArray* permissions = [NSArray arrayWithObjects:
+                                    kOPEN_PERMISSION_GET_USER_INFO,
+                                    kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
+                                    nil];
+            [[[sdkCall getinstance] oauth] authorize:permissions inSafari:NO];//  是否用浏览器打开
+        }
             
             break;
         case 1:
